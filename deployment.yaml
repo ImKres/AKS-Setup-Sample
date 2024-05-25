@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-sample-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-sample-app
+  template:
+    metadata:
+      labels:
+        app: aks-sample-app
+    spec:
+      containers:
+      - name: aks-sample-app
+        image: your_dockerhub_username/aks-sample-app:latest
+        ports:
+        - containerPort: 3000
